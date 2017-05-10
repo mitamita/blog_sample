@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+  <body>
+
+<% @posts.each do |post| %>
+<div class="unit">
+  <p class="title"><%= post.title %></p>
+  <p><%= post.text %></p>
+  <p>タグ：
+    <% post.tags.each do |tag| %>
+  <%= link_to tag.name,tag %>
+  <% end %></p>
+
+  <p><%= link_to '詳細', post %>
+     <%= link_to '編集', edit_post_path(post) %>
+     <%= link_to '削除', post, method: :delete, data: { confirm: '削除していいですか?' } %>
+     </p>
+</div>
+<% end %>
+
+  </body>
+
+
+<br>

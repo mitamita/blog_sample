@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog20</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header>
+  <nav>
+            <p class="logo"><%= link_to 'RailsCampBlog', root_path %></p>
+<div class="right">
+        <ul>
+
+          <li><%= link_to 'タグ一覧', tags_path %></li>
+            <li><%= link_to '新規投稿', new_post_path %></li>
+
+            <li><%= link_to 'ログアウト', destroy_user_session_path%></li>
+        </ul>
+</div>
+    </nav>
+</header>
+
+  <body>
+    <div id="main">
+        <img class="image" src="/assets/e.jpg" alt="e.jpg" />
+    </div>
+
+
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <% end %>
+</div>
+    <%= yield %>
+  </body>
+</html>

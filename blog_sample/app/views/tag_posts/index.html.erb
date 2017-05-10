@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>記事 一覧ページ☆</h1>
+
+<table>
+
+
+
+  <tbody>
+    <% @tag_posts.each do |tag_post| %>
+      <div class="unit">
+
+        <p class="title"><%= tag_post.post.title %></p>
+        <p>タグ:<%= link_to tag_post.tag.name,tag %></p>
+
+
+        <p><a><%= link_to '詳細', tag_post %></a>
+
+        <a><%= link_to '編集', edit_tag_post_path(tag_post) %></a>
+        <a><%= link_to '削除', tag_post, method: :delete, data: { confirm: '削除していいですか?' } %></a></p>
+
+        </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
